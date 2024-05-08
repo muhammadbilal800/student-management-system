@@ -25,5 +25,8 @@ class LoginController extends Controller
     $request->remember)){
         return back()->with('failed','Email and Passowrd does not match!');
     }
+
+    return redirect()->route('dashboard');
+
     }
 }

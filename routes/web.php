@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\Auth\DashboardController;
+use App\Models\Student;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SignupController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +30,23 @@ Route::post('signup',[SignupController::class,'store']);
 //Login
 Route::get('login',[LoginController::class,'index'])->name('login');
 Route::post('login',[LoginController::class,'store']);
+
+//dashboard access
+Route::middleware(['auth'])->group(function(){
+    Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
+});
+
+// Student Page
+Route::get('create-student',[StudentController::class,'index'])->name('add.student');
+Route::post('create-student',[StudentController::class,'store'])->name('create.student');
+
+
+//show student record
+Route::get('show-student',[StudentController::class,'show'])->name('show.student');
+
+//Update Student record
+Route::get('student/update/{student:slug}',[StudentController::class,'view'])->name('student.update');
+Route::patch('/update/student/{Student:slug}/now', [StudentController::class, 'update_student'])->name('update.student.now');
+
+
+

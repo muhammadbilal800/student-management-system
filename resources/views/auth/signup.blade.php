@@ -33,7 +33,7 @@
                     <span><img src="https://api.iconify.design/formkit:arrowright.svg?color=%236b707b" width="20px"></span>
                 </button>
             </div>
-            <p class="mt-5 text-xl font-semibold text-[#cdcdcd]">Already have an account?<a class="text-[#2d333d]" href=""> Sign in</a></p>
+            <p class="mt-5 text-xl font-semibold text-[#cdcdcd]">Already have an account?<a class="text-[#2d333d]" href="/login"> Sign in</a></p>
         </form>
     </div>
 
