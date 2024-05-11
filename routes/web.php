@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\DashboardController;
+use App\Http\Controllers\TeacherController;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -48,5 +49,16 @@ Route::get('show-student',[StudentController::class,'show'])->name('show.student
 Route::get('student/update/{student:slug}',[StudentController::class,'view'])->name('student.update');
 Route::patch('/update/student/{Student:slug}/now', [StudentController::class, 'update_student'])->name('update.student.now');
 
+//Teacher page
+
+Route::get('create-teacher',[TeacherController::class,'index'])->name('add.teacher');
+Route::post('create-student',[TeacherController::class,'store'])->name('create.teacher');
 
 
+//show student record
+Route::get('show-teacher',[TeacherController::class,'show'])->name('show.teacher');
+
+
+//Update Student record
+Route::get('teacher/update/{teacher:slug}',[TeacherController::class,'view'])->name('teacher.update');
+Route::patch('/update/teacher/{teacher:slug}/now', [TeacherController::class, 'update_teacher'])->name('update.teacher.now');
