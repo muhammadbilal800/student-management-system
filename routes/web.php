@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SignupController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,10 +56,23 @@ Route::get('create-teacher',[TeacherController::class,'index'])->name('add.teach
 Route::post('create-student',[TeacherController::class,'store'])->name('create.teacher');
 
 
-//show student record
+//show teacher record
 Route::get('show-teacher',[TeacherController::class,'show'])->name('show.teacher');
 
 
-//Update Student record
+//Update teacher record
 Route::get('teacher/update/{teacher:slug}',[TeacherController::class,'view'])->name('teacher.update');
 Route::patch('/update/teacher/{teacher:slug}/now', [TeacherController::class, 'update_teacher'])->name('update.teacher.now');
+
+//course page
+
+Route::get('create-course',[CourseController::class,'index'])->name('add.course');
+Route::post('create-course',[CourseController::class,'store'])->name('create.course');
+
+//show course record
+Route::get('show-course',[CourseController::class,'show'])->name('show.course');
+
+
+//Update course record
+Route::get('course/update/{course:slug}',[CourseController::class,'view'])->name('course.update');
+Route::patch('/update/course/{course:slug}/now', [CourseController::class, 'update_course'])->name('update.course.now');
