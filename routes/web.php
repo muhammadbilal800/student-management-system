@@ -1,14 +1,16 @@
 <?php
 
-use App\Http\Controllers\Auth\DashboardController;
-use App\Http\Controllers\TeacherController;
+use App\Models\Batch;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BatchController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SignupController;
-use App\Http\Controllers\CourseController;
+use App\Http\Controllers\Auth\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,3 +78,19 @@ Route::get('show-course',[CourseController::class,'show'])->name('show.course');
 //Update course record
 Route::get('course/update/{course:slug}',[CourseController::class,'view'])->name('course.update');
 Route::patch('/update/course/{course:slug}/now', [CourseController::class, 'update_course'])->name('update.course.now');
+
+
+
+
+//Batch page
+
+Route::get('create-batch',[BatchController::class,'index'])->name('add.batch');
+Route::post('create-batch',[BatchController::class,'store'])->name('create.batch');
+
+//show Batch record
+Route::get('show-batch',[BatchController::class,'show'])->name('show.batch');
+
+
+//Update Batch record
+Route::get('batch/update/{batch:slug}',[BatchController::class,'view'])->name('batch.update');
+Route::patch('/update/batch/{batch:slug}/now', [BatchController::class, 'update_batch'])->name('update.batch.now');

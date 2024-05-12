@@ -2,22 +2,26 @@
 
 namespace App\Models;
 
-use App\Models\Batch;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Course extends Model
+class Batch extends Model
 {
     use HasFactory;
     protected $fillable=[
         'name',
         'slug',
-        'syllabus',
-        'duration',
+        'date',
+        'course_id'
     ];
 
-    public function batch()
-    {
-        return $this->hasMany(Batch::class);
-    }
+
+    public function course()
+{
+    return $this->belongsTo(Course::class);
 }
+}
+
+
+
