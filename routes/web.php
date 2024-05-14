@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EnrollController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\Auth\DashboardController;
 
@@ -94,3 +96,16 @@ Route::get('show-batch',[BatchController::class,'show'])->name('show.batch');
 //Update Batch record
 Route::get('batch/update/{batch:slug}',[BatchController::class,'view'])->name('batch.update');
 Route::patch('/update/batch/{batch:slug}/now', [BatchController::class, 'update_batch'])->name('update.batch.now');
+
+//Enrollment page
+
+Route::get('create-enroll',[EnrollmentController::class,'index'])->name('add.enroll');
+Route::post('create-enroll',[EnrollmentController::class,'store'])->name('create.enroll');
+
+
+//show Enroll record
+Route::get('show-enroll',[EnrollmentController::class,'show'])->name('show.enroll');
+
+//Update Enroll record
+Route::get('enroll/update/{enrollment:slug}',[EnrollmentController::class,'view'])->name('enroll.update');
+Route::patch('/update/enroll/{enrollment:slug}/now', [EnrollmentController::class, 'update_enroll'])->name('update.enroll.now');

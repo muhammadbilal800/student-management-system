@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Course;
+use App\Models\Enrollment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -20,7 +21,15 @@ class Batch extends Model
     public function course()
 {
     return $this->belongsTo(Course::class);
+
+
 }
+
+public function enrollments()
+{
+    return $this->hasMany(Enrollment::class);
+}
+
 }
 
 
