@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Batch;
 use App\Models\Course;
-use App\Models\Enroll;
 use App\Models\Student;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
@@ -59,26 +58,49 @@ class EnrollmentController extends Controller
         ]);
     }
 
-    public function update_enroll(Request $request, Enrollment $enrollment){
-        $this->validate($request,[
-            "enroll_no" => "required|max:256",
-            "batch_id" => "required|exists:batches,id", // Corrected table name
-            "student_id" => "required|exists:students,id",
-            "join_date" => "required|date",
-            "fee" => "required|numeric|min:0",
-        ]);
+//     public function update_enroll(Request $request, Enrollment $enrollment){
+//         $this->validate($request,[
+//             "enroll_no" => "required|max:256",
+//             "batch_id" => "required|exists:batches,id", // Corrected table name
+//             "student_id" => "required|exists:students,id",
+//             "join_date" => "required|date",
+//             "fee" => "required|numeric|min:0",
+//         ]);
 
-        $array = [
-            'enroll_no' => $request->enroll_no,
-            'slug' => str_replace(' ','-',strtolower($request->enroll_no)),
-            'batch_id' => $request->batch_id,
-            'student_id' => $request->student_id,
-            'join_date' => $request->join_date,
-            'fee' => $request->fee,
-        ];
+//         $array = [
+//             'enroll_no' => $request->enroll_no,
+//             'slug' => str_replace(' ','-',strtolower($request->enroll_no)),
+//             'batch_id' => $request->batch_id,
+//             'student_id' => $request->student_id,
+//             'join_date' => $request->join_date,
+//             'fee' => $request->fee,
+//         ];
         
-        $enrollment->update($array);
+//         $enrollment->update($array);
 
-        return redirect()->route('show.enroll')->with('success','Enroll Record has been Updated!');
-   }
+//         return redirect()->route('show.enroll')->with('success','Enroll Record has been Updated!');
+//    }
+
+
+public function update_enroll(Request $request, Enrollment $enrollment){
+    $this->validate($request,[
+        "enroll_no" => "required|max:256",
+        "batch_id" => "required|exists:batches,id",
+        "student_id" => "required|exists:students,id",
+        "join_date" => "required|date",
+        "fee" => "required|numeric|min:0",
+    ]);
+
+    $enrollment->update([
+        'enroll_no' => $request->enroll_no,
+        'slug' => str_replace(' ', '-', strtolower($request->enroll_no)),
+        'batch_id' => $request->batch_id,
+        'student_id' => $request->student_id,
+        'join_date' => $request->join_date,
+        'fee' => $request->fee,
+    ]);
+
+    return redirect()->route('show.enroll')->with('success', 'Enroll Record has been Updated!');
+}
+
 }

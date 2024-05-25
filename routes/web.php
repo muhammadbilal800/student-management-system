@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\Auth\DashboardController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,3 +110,19 @@ Route::get('show-enroll',[EnrollmentController::class,'show'])->name('show.enrol
 //Update Enroll record
 Route::get('enroll/update/{enrollment:slug}',[EnrollmentController::class,'view'])->name('enroll.update');
 Route::patch('/update/enroll/{enrollment:slug}/now', [EnrollmentController::class, 'update_enroll'])->name('update.enroll.now');
+
+
+
+
+//Payment page
+
+Route::get('create-payment',[PaymentController::class,'index'])->name('add.payment');
+Route::post('create-payment',[PaymentController::class,'store'])->name('create.payment');
+
+
+//show Payment record
+Route::get('show-payment',[PaymentController::class,'show'])->name('show.payment');
+
+//Update Payment record
+Route::get('payment/update/{payment:slug}',[PaymentController::class,'view'])->name('payment.update');
+Route::patch('/update/payment/{payment:slug}/now', [PaymentController::class, 'update_payment'])->name('update.payment.now');

@@ -19,7 +19,7 @@
                 <a href="{{ route('show.course') }}" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white rounded-lg mt-2">Courses</a>
                 <a href="{{ route('show.batch') }}" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white rounded-lg mt-2">Batches</a>
                 <a href="{{ route('show.enroll') }}" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white rounded-lg mt-2">Enrollment</a>
-                <a href="#" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white rounded-lg mt-2">Payment</a>
+                <a href="{{ route('show.payment') }}" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white rounded-lg mt-2">Payment</a>
             </div>
         </div>
    

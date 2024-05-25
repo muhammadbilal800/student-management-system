@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Batch;
 use App\Models\Student;
+use App\Models\Payment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -28,6 +29,11 @@ class Enrollment extends Model
     public function batch()
     {
         return $this->belongsTo(Batch::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
     }
 
 }
