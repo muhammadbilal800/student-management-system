@@ -103,4 +103,10 @@ public function update_enroll(Request $request, Enrollment $enrollment){
     return redirect()->route('show.enroll')->with('success', 'Enroll Record has been Updated!');
 }
 
+public function destroy(Enrollment $enrollment){
+    // $this->authorize('delete',$teacher);
+    $enrollment->delete();
+    return redirect()->route('show.enroll')->with('success','Enroll Record has been deleted Successfully!');
+}
+
 }

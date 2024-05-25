@@ -69,4 +69,11 @@ class PaymentController extends Controller
 
         return redirect()->route('show.payment')->with('success','Payment Record has been Updated!');
    }
+
+   public function destroy(Payment $payment){
+    // $this->authorize('delete',$teacher);
+    $payment->delete();
+    return redirect()->route('show.payment')->with('success','Payment Record has been deleted Successfully!');
+}
+
 }

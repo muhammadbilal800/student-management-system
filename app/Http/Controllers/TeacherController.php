@@ -72,4 +72,11 @@ class TeacherController extends Controller
         // dd($array);
         return redirect()->route('show.teacher')->with('success','Teacher Record has been Updated!');
     }
+
+    public function destroy(Teacher $teacher){
+        // $this->authorize('delete',$teacher);
+        $teacher->delete();
+        return redirect()->route('show.teacher')->with('success','Teacher Record has been deleted Successfully!');
+    }
+
 }

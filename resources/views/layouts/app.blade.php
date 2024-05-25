@@ -20,6 +20,11 @@
                 <a href="{{ route('show.batch') }}" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white rounded-lg mt-2">Batches</a>
                 <a href="{{ route('show.enroll') }}" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white rounded-lg mt-2">Enrollment</a>
                 <a href="{{ route('show.payment') }}" class="block py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-white rounded-lg mt-2">Payment</a>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    @method('Delete')
+                    <button class="flex items-center bg-red-600  px-4 py-2 ml-3 rounded-lg font-bold text-white hover:bg-gray-700 hover:text-white w-full mt-2"><img class="mr-1" src="https://api.iconify.design/material-symbols:exit-to-app.svg?color=%23ffffff" width="20px">Logout</button> 
+                </form>
             </div>
         </div>
    

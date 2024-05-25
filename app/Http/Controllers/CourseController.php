@@ -73,4 +73,10 @@ class CourseController extends Controller
         // dd($array);
         return redirect()->route('show.course')->with('success','Course Record has been Updated!');
     }
+
+    public function destroy(Course $course){
+        // $this->authorize('delete',$teacher);
+        $course->delete();
+        return redirect()->route('show.course')->with('success','Course Record has been deleted Successfully!');
+    }
 }

@@ -70,4 +70,10 @@ class StudentController extends Controller
         // dd($array);
         return redirect()->route('show.student')->with('success','Student Record has been Updated!');
     }
+
+    public function destroy(Student $student){
+        // $this->authorize('delete',$teacher);
+        $student->delete();
+        return redirect()->route('show.student')->with('success','Student Record has been deleted Successfully!');
+    }
 }

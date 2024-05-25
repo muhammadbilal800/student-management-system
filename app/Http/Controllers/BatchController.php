@@ -77,4 +77,10 @@ class BatchController extends Controller
         // dd($array);
         return redirect()->route('show.batch')->with('success','Batch Record has been Updated!');
     }
+
+    public function destroy(Batch $batch){
+        // $this->authorize('delete',$teacher);
+        $batch->delete();
+        return redirect()->route('show.batch')->with('success','Batch Record has been deleted Successfully!');
+    }
 }

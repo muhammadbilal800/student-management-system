@@ -1,30 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student Management System</title>
-</head>
-<body>
-    @extends('layouts.app')
-    @section('content')
-       <div class="max-w-5xl m-auto mb-2">
-            <h1 class="text-red-600 font-bold text-3xl p-1">Student Management System</h1>
-       </div>
-       @if (session('success'))
-       <x-alerts.success :success="session('success')"  />
-        @endif
-    
-      
-
-    </div> 
-
-
-
-    @endsection
-</body>
-</html> --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,9 +17,9 @@
             <div class="flex items-center justify-between">
                 <div class="text-white text-xl font-semibold">Student Management System</div>
                 <div>
-                    <a href="#" class="text-white hover:text-gray-200 px-4">Home</a>
-                    <a href="#" class="text-white hover:text-gray-200 px-4">About</a>
-                    <a href="#" class="text-white hover:text-gray-200 px-4">Contact</a>
+                    <a href="/" class="text-white hover:text-gray-200 px-4">Home</a>
+                    <a href="{{ route('about') }}" class="text-white hover:text-gray-200 px-4">About</a>
+                    <a href="{{ route('contact') }}" class="text-white hover:text-gray-200 px-4">Contact</a>
                 </div>
             </div>
         </div>

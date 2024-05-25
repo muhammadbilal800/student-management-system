@@ -34,7 +34,11 @@
                         <div  x-show="open" x-cloak x-transition
                         class="absolute flex flex-col  -translate-x-1 rounded-lg p-3 bg-black shadow-lg">
                             <a  href="{{ route('course.update',$course->slug) }}" class="px-2  mb-2 py-2 rounded-lg text-center text-white bg-indigo-500" >Edit</a>
-                            <a class="px-2   py-1 rounded-lg text-center text-white bg-red-500 "  href="">Delete</a>
+                            <form action="{{ route('course.delete',$course->slug) }}" method="POST" >
+                                @csrf
+                                @method('Delete')
+                              <button  class="px-2 py-1 rounded-lg text-center text-white bg-red-500" type="submit">Delete</button>
+                               </form>
                         </div>
                      </div>
                     </td>
